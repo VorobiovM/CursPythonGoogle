@@ -21,8 +21,8 @@ def write_grid(pos, sym):
 
 
 def computer_move():
-    second_choice = {2: GRID[0][1], 4: GRID[1][0], 6: GRID[1][2], 8: GRID[2][1]}
-    third_choice = {1: GRID[0][0], 3: GRID[0][2], 7: GRID[2][0], 9: GRID[2][2]}
+    second_choice = {1: GRID[0][0], 3: GRID[0][2], 7: GRID[2][0], 9: GRID[2][2]}
+    third_choice = {2: GRID[0][1], 4: GRID[1][0], 6: GRID[1][2], 8: GRID[2][1]}
     if not GRID[1][1]:
         write_grid(5, "O")
     elif None in second_choice.values():
