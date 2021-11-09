@@ -4,23 +4,25 @@ import random
 GRID = [[None, None, None], [None, None, None], [None, None, None]]
 
 
-def display_grid():
+def display_grid() -> None:
     for i in range(3):
         row = [x if x else " " for x in GRID[i]]
         print("|".join(row))
+    return
 
 
-def write_grid(pos, sym):
+def write_grid(pos, sym) -> None:
     pos -= 1
     row = pos // 3
     col = pos - row * 3
     if not GRID[row][col]:
         GRID[row][col] = sym
+        return
     else:
         raise RuntimeError
 
 
-def computer_move():
+def computer_move() -> None:
     second_choice = {1: GRID[0][0], 3: GRID[0][2], 7: GRID[2][0], 9: GRID[2][2]}
     third_choice = {2: GRID[0][1], 4: GRID[1][0], 6: GRID[1][2], 8: GRID[2][1]}
     if not GRID[1][1]:
@@ -33,9 +35,10 @@ def computer_move():
         available_moves = [key for key, value in third_choice.items() if not value]
         move = random.randint(0, len(available_moves) - 1)
         write_grid(available_moves[move], "O")
+    return
 
 
-def check_win():
+def check_win() -> bool:
     # Check if won on row
     if GRID[0][0] and GRID[0][0] == GRID[0][1] == GRID[0][2]:
         return True
