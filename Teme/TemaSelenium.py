@@ -7,7 +7,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.service import Service
 
-
+# noinspection SpellCheckingInspection
 MONTHS = {
     1: "ianuarie",
     2: "februarie",
